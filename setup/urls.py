@@ -5,8 +5,8 @@ from rest_framework import routers
 from app.views import FireExtinguishersViewSet, TypeViewSet
 
 router = routers.DefaultRouter()
-router.registry(r'extinguishers', FireExtinguishersViewSet)
-router.registry(r'extinguishers/types', TypeViewSet)
+router.register(r'extinguishers', FireExtinguishersViewSet)
+router.register(r'extinguishers/types', TypeViewSet)
 
 
 urlpatterns = [
