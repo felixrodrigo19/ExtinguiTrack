@@ -40,3 +40,42 @@ To get started with ExtinguiTrack, follow these steps:
    ```shell
    pipenv shell
    pipenv install
+
+5. **Apply Migrations**:
+   ```shell
+   python manage.py migrate
+
+6. **Create a Admin User**:
+   ```shell
+   python manage.py createsuperuser
+
+7. **Run the Dev Server:
+   ```shell
+   python manage.py runserver 
+
+8. **Access the Application**:
+   Open your web browser and go to http://localhost:8000.
+
+## Usage
+
+Data Entry: Add new records and update existing ones as needed.
+
+Efficient Management: Easily keep track of the status and location of your fire extinguishers, helping you ensure safety
+compliance.
+
+## Contributing
+We welcome contributions from the open-source community. If you'd like to contribute to ExtinguiTrack, please follow
+these guidelines:
+
+1. Fork the repository and create your branch from main.
+
+2. Make your code changes and ensure tests are passing.
+
+3. Open a pull request, providing a detailed description of your changes.
+
+4. We will review your contributions, and once approved, they will be merged.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
