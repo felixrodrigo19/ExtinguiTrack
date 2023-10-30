@@ -45,7 +45,7 @@ class TypeSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class FireExtinguisherSerializer(serializers):
+class FireExtinguisherSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = FireExtinguisher
         fields = '__all__'
