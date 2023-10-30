@@ -1,7 +1,15 @@
 from django.http import JsonResponse
+from rest_framework import viewsets
+
+from app.models import FireExtinguisher, Type
+from app.serializers import ManufactureSerializer, TypeSerializer
 
 
-def fire_extinguishers(request):
-    if request.method == 'GET':
-        data = {}
-        return JsonResponse(data=data)
+class FireExtinguishersViewSet(viewsets.ModelViewSet):
+    serializer_class = ManufactureSerializer
+    queryset = FireExtinguisher.objects.all()
+
+
+class TypeViewSet(viewsets.ModelViewSet):
+    serializer_class = TypeSerializer
+    queryset = Type.objects.all()
