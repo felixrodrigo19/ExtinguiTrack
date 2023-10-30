@@ -36,6 +36,7 @@ class FireExtinguisher(models.Model):
     serial_number = models.CharField(max_length=20)
     manufacturing_date = models.DateField()
     last_inspection_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
