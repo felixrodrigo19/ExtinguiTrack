@@ -63,6 +63,9 @@ Data Entry: Add new records and update existing ones as needed.
 Efficient Management: Easily keep track of the status and location of your fire extinguishers, helping you ensure safety
 compliance.
 
+![home.png](state_of_art%2Fhome.png)
+![suppliers.png](state_of_art%2Fsuppliers.png)
+
 ## Contributing
 
 We welcome contributions from the open-source community. If you'd like to contribute to ExtinguiTrack, please follow
