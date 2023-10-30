@@ -25,16 +25,16 @@ solution to streamline your fire safety management.
 
 To get started with ExtinguiTrack, follow these steps:
 
-1. **Prerequisites**: Make sure you have [Python](https://www.python.org/downloads/)
-   and [Django](https://www.djangoproject.com/download/) installed.
-
-2. **Clone the Repository**:
+1. **Clone the Repository**:
    ```shell
    https://github.com/felixrodrigo19/ExtinguiTrack.git
 
-3. **Enter on the project path**:
+2. **Enter on the project path**:
    ```shell
    cd ExtinguiTrack
+
+3. **Create a .env file and add a SECRET_KEY**
+   https://djecrety.ir/
 
 4. **Create a new env with Pipenv and install all project requirements:**
    ```shell
@@ -64,6 +64,7 @@ Efficient Management: Easily keep track of the status and location of your fire 
 compliance.
 
 ## Contributing
+
 We welcome contributions from the open-source community. If you'd like to contribute to ExtinguiTrack, please follow
 these guidelines:
 
