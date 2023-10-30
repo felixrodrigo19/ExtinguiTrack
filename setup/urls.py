@@ -1,9 +1,14 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from app.views import fire_extinguishers
+from app.views import FireExtinguishersViewSet, TypeViewSet
+
+router = routers.DefaultRouter()
+router.registry(r'extinguishers', FireExtinguishersViewSet)
+router.registry(r'extinguishers/types', TypeViewSet)
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('extinguishers/', fire_extinguishers),
+    path('', include(router.urls)),
 ]
