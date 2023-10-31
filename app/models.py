@@ -5,6 +5,9 @@ class Manufacture(models.Model):
     description = models.CharField(max_length=150)
     website = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.description
+
 
 class Supplier(models.Model):
     name = models.CharField(max_length=150)
@@ -13,23 +16,38 @@ class Supplier(models.Model):
     cep = models.CharField(max_length=10)
     website = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.name
+
 
 class Location(models.Model):
     description = models.CharField(max_length=150)
     building = models.CharField(max_length=150)
     floor = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.description
+
 
 class Agent(models.Model):
     description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.description
 
 
 class Capacity(models.Model):
     capacity = models.DecimalField(max_digits=5, decimal_places=2)
 
+    def __str__(self):
+        return str(self.capacity)
+
 
 class Type(models.Model):
     description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.description
 
 
 class FireExtinguisher(models.Model):
@@ -44,3 +62,6 @@ class FireExtinguisher(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     capacity = models.ForeignKey(Capacity, on_delete=models.CASCADE)
     manufacture = models.ForeignKey(Manufacture, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.serial_number
