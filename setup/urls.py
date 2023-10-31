@@ -11,11 +11,11 @@ from app.views import CapacityViewSet
 
 router = routers.DefaultRouter()
 router.register(r'extinguishers', FireExtinguishersViewSet)
-router.register(r'extinguishers/types', TypeViewSet)
-router.register(r'extinguishers/location', LocationViewSet)
-router.register(r'extinguishers/manufacture', ManufactureViewSet)
-router.register(r'extinguishers/agents', AgentViewSet)
-router.register(r'extinguishers/capacity', CapacityViewSet)
+router.register(r'types', TypeViewSet)
+router.register(r'location', LocationViewSet)
+router.register(r'manufacture', ManufactureViewSet)
+router.register(r'agents', AgentViewSet)
+router.register(r'capacity', CapacityViewSet)
 router.register(r'suppliers', SupplierViewSet)
 
 urlpatterns = [
