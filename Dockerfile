@@ -1,4 +1,4 @@
-FROM Python:3.11
+FROM python:3.11-slim-bookworm
 
 WORKDIR /usr/src/app
 
@@ -17,5 +17,5 @@ COPY . .
 
 ENV SECRET_KEY=default
 
-RUN python manage.py runserver 0.0.0.0:8000
+RUN pipenv run python manage.py runserver 0.0.0.0:8000
 
