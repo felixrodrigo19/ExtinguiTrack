@@ -54,7 +54,32 @@ To get started with ExtinguiTrack, follow these steps:
    python manage.py runserver 
 
 8. **Access the Application**:
-   Open your web browser and go to http://localhost:8000.
+   Open your API platform, such as [postman](https://postman.com) and access
+   ```
+   URL: http://localhost:8000
+   Method: GET
+   ```
+
+9. **Get the User Token**
+   Access
+   ```
+   URL: localhost:8000/api-token-auth
+   Method: POST
+   Body: {
+    "username": "USERNAME",
+    "password": "PASSWORD"
+   }
+   ```
+
+10. **Access any route with authorization**, example:
+   ```
+   URL: http://localhost:8000/extinguishers
+   Method: GET
+   Authorization:
+      Type: OAuth 2.0
+      Header Prefix: Token
+      Token field: USER TOKEN 
+   ```
 
 ## Usage
 
