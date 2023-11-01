@@ -1,4 +1,9 @@
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from app.models import FireExtinguisher
 from app.models import Type
@@ -22,6 +27,8 @@ class FireExtinguishersViewSet(viewsets.ModelViewSet):
     """
     serializer_class = FireExtinguisherSerializer
     queryset = FireExtinguisher.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class TypeViewSet(viewsets.ModelViewSet):
@@ -30,6 +37,8 @@ class TypeViewSet(viewsets.ModelViewSet):
     """
     serializer_class = TypeSerializer
     queryset = Type.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class CapacityViewSet(viewsets.ModelViewSet):
@@ -38,6 +47,8 @@ class CapacityViewSet(viewsets.ModelViewSet):
     """
     serializer_class = CapacitySerializer
     queryset = Capacity.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class AgentViewSet(viewsets.ModelViewSet):
@@ -46,6 +57,8 @@ class AgentViewSet(viewsets.ModelViewSet):
     """
     serializer_class = AgentSerializer
     queryset = Agent.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class LocationViewSet(viewsets.ModelViewSet):
@@ -54,6 +67,8 @@ class LocationViewSet(viewsets.ModelViewSet):
     """
     serializer_class = LocationSerializer
     queryset = Location.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class SupplierViewSet(viewsets.ModelViewSet):
@@ -62,6 +77,8 @@ class SupplierViewSet(viewsets.ModelViewSet):
     """
     serializer_class = SupplierSerializer
     queryset = Supplier.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class ManufactureViewSet(viewsets.ModelViewSet):
@@ -70,3 +87,22 @@ class ManufactureViewSet(viewsets.ModelViewSet):
     """
     serializer_class = ManufactureSerializer
     queryset = Manufacture.objects.all()
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+
+class CustomAuthToken(ObtainAuthToken):
+    """
+    Return token and email from a specific user
+    """
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'email': user.email
+        })
